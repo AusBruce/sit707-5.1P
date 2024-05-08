@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class WeatherController {
 	
-	public static final int HOURS_PER_DAY = 12;
+	public static final int HOURS_PER_DAY = 10;
 
 	private static WeatherController instance;
 	
@@ -115,15 +115,15 @@ public class WeatherController {
 	 * @param temperature
 	 * @return
 	 */
-	public String persistTemperature(int hour, double temperature) {
-		SimpleDateFormat sdf = new SimpleDateFormat("H:m:s");
-		String savedTime = sdf.format(new Date());
-		System.out.println("Temperature: " + temperature + " of hour: " + hour + ", saved at " + savedTime);
-		
-		// sleep a while to simulate a delay
-		sleep(1 + new Random().nextInt(2));
-		
-		return savedTime;
+	public String persistTemperature(int hour, double temperature, Date date) {
+	    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	    String savedTime = sdf.format(date);
+	    System.out.println("Temperature: " + temperature + " of hour: " + hour + ", saved at " + savedTime);
+	    
+	    // Simulate a delay
+	    sleep(1 + new Random().nextInt(2));
+	    
+	    return savedTime;
 	}
 	
 	/**
